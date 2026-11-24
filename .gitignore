@@ -1,0 +1,15 @@
+target/
+*.class
+*.log
+logs/
+exports/
+application-forms/
+config/application-local.properties
+
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.DS_Store
