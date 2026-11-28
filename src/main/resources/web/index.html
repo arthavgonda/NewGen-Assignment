@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Origination System</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/jakarta-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/jakarta-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/app.css">
+  <script>
+    try { var t = localStorage.getItem('los.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#/">
+        <span class="brand-mark" data-icon="hand-coins"></span>
+        <span class="brand-name">Loan Origination<small>Newgen campus build</small></span>
+      </a>
+      <form class="search" id="goto" autocomplete="off">
+        <input id="goto-q" placeholder="Search application no., mobile or customer ID">
+        <button type="submit" aria-label="Search" data-icon="search"></button>
+      </form>
+      <div class="top-right">
+        <span class="bdate" title="Business date"><i data-icon="calendar"></i><span id="bdate">–</span></span>
+        <button class="icon-btn" id="theme" type="button" aria-label="Switch theme" data-icon="moon"></button>
+        <div class="bell-wrap">
+          <button class="icon-btn" id="bell" type="button" aria-label="Alerts" data-icon="bell"></button>
+          <span class="badge" id="alert-count"></span>
+          <div class="dropdown" id="alerts-menu" hidden></div>
+        </div>
+        <a class="icon-btn" href="#/settings" aria-label="Settings" data-icon="settings"></a>
+        <div class="me">
+          <span class="avatar" id="me-avatar">M</span>
+          <span class="me-name"><b id="me-code">MAKER01</b><small>Loan officer</small></span>
+        </div>
+      </div>
+    </header>
+
+    <aside class="side">
+      <div class="side-label">Account</div>
+      <div class="account">
+        <span class="avatar ring" id="side-avatar">M</span>
+        <div>
+          <label for="user">Officer code</label>
+          <input id="user" maxlength="20" value="MAKER01" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="side-label">Main</div>
+      <nav class="nav">
+        <a href="#/" data-route="desk"><i data-icon="gauge"></i>Dashboard</a>
+        <a href="#/customers" data-route="customers"><i data-icon="users"></i>Customers</a>
+        <a href="#/applications" data-route="applications"><i data-icon="file-text"></i>Applications</a>
+        <a href="#/applications/new" data-route="new-application"><i data-icon="file-plus"></i>New application<span class="plus" data-icon="plus"></span></a>
+      </nav>
+
+      <div class="side-label">Work queues</div>
+      <nav class="nav">
+        <a href="#/queue/UNDER_REVIEW" data-route="queue-UNDER_REVIEW"><i data-icon="clipboard-check"></i>Review<em data-count="UNDER_REVIEW"></em></a>
+        <a href="#/queue/CREDIT_APPROVAL" data-route="queue-CREDIT_APPROVAL"><i data-icon="shield-check"></i>Credit approval<em data-count="CREDIT_APPROVAL"></em></a>
+        <a href="#/queue/APPROVED" data-route="queue-APPROVED"><i data-icon="banknote"></i>Disbursement<em data-count="APPROVED"></em></a>
+      </nav>
+
+      <div class="side-label">Back office</div>
+      <nav class="nav">
+        <a href="#/reports" data-route="reports"><i data-icon="chart-column"></i>Reports</a>
+        <a href="#/utilities" data-route="utilities"><i data-icon="server-cog"></i>Utilities</a>
+        <a href="#/settings" data-route="settings"><i data-icon="settings"></i>Configuration</a>
+      </nav>
+
+      <div class="side-foot" id="side-foot"></div>
+    </aside>
+
+    <main class="main" id="view"></main>
+  </div>
+
+  <div class="tooltip" id="tip" hidden></div>
+  <script src="/icons.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
